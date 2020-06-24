@@ -5,10 +5,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Brainacad4 on 24.06.2020.
@@ -21,7 +18,7 @@ public class Main {
         fruits.forEach(System.out::println);
 
         Set<Integer> testSet = Sets.newLinkedHashSet();
-        Set<Integer> testSetNative = new
+//        Set<Integer> testSetNative = new
 
 
         List<String> reverseFruits = Lists.reverse(fruits);
@@ -33,8 +30,8 @@ public class Main {
         System.out.println(map);
 
 
-        Map<String, List<String> oldMap =  new HashMap<>();
-        if (oldMap.containsKey("Key"))
+        Map<String, List<String>> oldMap =  new HashMap<>();
+        if (oldMap.containsKey("Key"));
 
 
 
