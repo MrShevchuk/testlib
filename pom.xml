@@ -8,6 +8,12 @@
     <artifactId>test-lib</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -17,6 +23,22 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>write-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>${project.build.outputDirectory}/maven.properties</outputFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -25,6 +47,7 @@
         <maven.complier.target>8</maven.complier.target>
         <guava.version>29.0-jre</guava.version>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -36,14 +59,15 @@
 
     <profiles>
         <profile>
-        <id>prod</id>
-        <properties>
-            <server.url>prod.mycompany.ru</server.url>
-            <test.message>hello from prod</test.message>
-        </properties>
+            <id>prod</id>
+            <properties>
+                <server.url>prod.mycompany.ru</server.url>
+                <test.message>hello from prod</test.message>
+            </properties>
         </profile>
 
-        <profile><id>dev</id>
+        <profile>
+            <id>dev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -51,7 +75,6 @@
                 <server.url>prod.mycompany.ru</server.url>
             </properties>
         </profile>
-
     </profiles>
 
 </project>

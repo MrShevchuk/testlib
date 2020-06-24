@@ -25,7 +25,10 @@ public class PropertiesMain {
         String localHello = (String) prop.get("props.local.hello");
         String mvnHello = (String) prop.get("props.mvn.hello");
         String serverUrl = (String) prop.get("props.server");
+
         System.out.println(localHello);
+        System.out.println(mvnHello);
+        System.out.println(serverUrl);
 
     }
 
